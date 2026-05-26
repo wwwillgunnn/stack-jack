@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@font-face {
+	font-family: 'm6x11';
+	src:
+		url('/fonts/m6x11plus.woff2') format('woff2'),
+		url('/fonts/m6x11.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Disable anti-aliasing to preserve crisp pixel edges */
+.pixel-font {
+	font-family: 'm6x11', monospace;
+	image-rendering: pixelated;
+	-webkit-font-smoothing: none;
+	-moz-osx-font-smoothing: none;
+}
