@@ -239,18 +239,22 @@
 	// Start with placeholder values shown before first generate
 	let appName = $state('App Name');
 	let appDesc = $state('Generate random app ideas with a matching tech stack.');
-	let frontend = $state('React');
-	let styling = $state('Shadcn');
-	let backend = $state('Node.js');
-	let db = $state('Postgres');
-	let deploy = $state('Vercel');
+	let frontend = $state('');
+	let styling = $state('');
+	let backend = $state('');
+	let db = $state('');
+	let deploy = $state('');
 
 	function getIcon(name: string) {
 		return techIcons[name as keyof typeof techIcons]?.svg ?? '⬡';
 	}
 
+	let dealKey = $state(0);
+	let hasDealt = $state(false);
+
 	function generate() {
 		const idea = ideas[Math.floor(Math.random() * ideas.length)];
+
 		appName = idea.name;
 		appDesc = idea.desc;
 		frontend = idea.frontend;
@@ -258,6 +262,9 @@
 		backend = idea.backend;
 		db = idea.db;
 		deploy = idea.deploy;
+
+		hasDealt = true;
+		dealKey++;
 	}
 </script>
 
@@ -279,17 +286,39 @@
 			<span class="max-w-2xl text-lg leading-relaxed text-white/90 sm:text-xl">{appDesc}</span>
 		</div>
 
-		<div class="pointer-events-auto flex justify-center gap-6">
-			<PlayingCard title="Frontend" value={frontend} code="FE" suit="♠" icon={getIcon(frontend)} />
-			<PlayingCard title="Styling" value={styling} code="ST" suit="♥" icon={getIcon(styling)} />
-			<PlayingCard title="Backend" value={backend} code="BE" suit="♣" icon={getIcon(backend)} />
-			<PlayingCard title="Database" value={db} code="DB" suit="♦" icon={getIcon(db)} />
-			<PlayingCard title="Deploy" value={deploy} code="DP" suit="♠" icon={getIcon(deploy)} />
-		</div>
+		{#key dealKey}
+			<div class="pointer-events-auto flex justify-center gap-6" class:deal-active={hasDealt}>
+				<div class="deal-card [--delay:0ms] [--r:-28deg] [--x:-420px] [--y:260px]">
+					<PlayingCard
+						title="Frontend"
+						value={frontend}
+						code="FE"
+						suit="♠"
+						icon={getIcon(frontend)}
+					/>
+				</div>
+
+				<div class="deal-card [--delay:90ms] [--r:-16deg] [--x:-260px] [--y:300px]">
+					<PlayingCard title="Styling" value={styling} code="ST" suit="♥" icon={getIcon(styling)} />
+				</div>
+
+				<div class="deal-card [--delay:180ms] [--r:4deg] [--x:0px] [--y:340px]">
+					<PlayingCard title="Backend" value={backend} code="BE" suit="♣" icon={getIcon(backend)} />
+				</div>
+
+				<div class="deal-card [--delay:270ms] [--r:16deg] [--x:260px] [--y:300px]">
+					<PlayingCard title="Database" value={db} code="DB" suit="♦" icon={getIcon(db)} />
+				</div>
+
+				<div class="deal-card [--delay:360ms] [--r:28deg] [--x:420px] [--y:260px]">
+					<PlayingCard title="Deploy" value={deploy} code="DP" suit="♠" icon={getIcon(deploy)} />
+				</div>
+			</div>
+		{/key}
 
 		<div class="flex w-full max-w-3xl flex-col items-center gap-4">
 			<button
-				class="pointer-events-auto w-full rounded-2xl bg-[#e83a0a] py-5 text-2xl hover:bg-blue-500 sm:text-3xl"
+				class="pointer-events-auto w-full rounded-2xl bg-linear-to-b from-[#ff4a16] via-[#ef3208] to-[#b82305] px-8 py-5 text-2xl leading-relaxed font-thin tracking-wider text-white shadow-[0_18px_45px_rgba(232,58,10,0.45)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_65px_rgba(232,58,10,0.65)] hover:brightness-110 focus:ring-4 focus:ring-orange-300/40 focus:outline-none active:translate-y-0 active:scale-[0.98] sm:text-3xl"
 				onclick={generate}
 			>
 				Generate Idea!
@@ -301,3 +330,28 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.deal-active .deal-card {
+		opacity: 0;
+		transform-origin: bottom center;
+		animation: deal-card 650ms cubic-bezier(0.16, 1, 0.3, 1) var(--delay) forwards;
+	}
+
+	@keyframes deal-card {
+		0% {
+			opacity: 0;
+			transform: translate(var(--x), var(--y)) rotate(var(--r)) scale(0.75);
+		}
+
+		65% {
+			opacity: 1;
+			transform: translate(0, -10px) rotate(0deg) scale(1.04);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translate(0, 0) rotate(0deg) scale(1);
+		}
+	}
+</style>
