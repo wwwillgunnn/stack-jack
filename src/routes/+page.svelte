@@ -279,7 +279,7 @@
 	/>
 
 	<div
-		class="pixel-font pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-between px-6 py-12 text-center text-white sm:px-10 md:py-30 lg:px-20"
+		class="pixel-font pointer-events-none absolute inset-0 z-10 flex flex-col items-center justify-between px-4 py-8 text-center text-white sm:px-10 sm:py-12 md:py-30 lg:px-20"
 	>
 		<div class="flex flex-col items-center gap-4">
 			<h1 class="text-6xl leading-none tracking-wide sm:text-7xl lg:text-8xl">{appName}</h1>
@@ -287,8 +287,13 @@
 		</div>
 
 		{#key dealKey}
-			<div class="pointer-events-auto flex justify-center gap-6" class:deal-active={hasDealt}>
-				<div class="deal-card [--delay:0ms] [--r:-28deg] [--x:-420px] [--y:260px]">
+			<div
+				class="pointer-events-auto grid grid-cols-6 justify-center gap-3 sm:flex sm:gap-6"
+				class:deal-active={hasDealt}
+			>
+				<div
+					class="deal-card sm:col-span-auto col-span-3 justify-self-end [--delay:0ms] [--r:-28deg] [--x:-420px] [--y:260px]"
+				>
 					<PlayingCard
 						title="Frontend"
 						value={frontend}
@@ -298,19 +303,27 @@
 					/>
 				</div>
 
-				<div class="deal-card [--delay:90ms] [--r:-16deg] [--x:-260px] [--y:300px]">
+				<div
+					class="deal-card sm:col-span-auto col-span-3 justify-self-start [--delay:90ms] [--r:-16deg] [--x:-260px] [--y:300px]"
+				>
 					<PlayingCard title="Styling" value={styling} code="ST" suit="♥" icon={getIcon(styling)} />
 				</div>
 
-				<div class="deal-card [--delay:180ms] [--r:4deg] [--x:0px] [--y:340px]">
+				<div
+					class="deal-card sm:col-span-auto col-span-2 justify-self-center [--delay:180ms] [--r:4deg] [--x:0px] [--y:340px]"
+				>
 					<PlayingCard title="Backend" value={backend} code="BE" suit="♣" icon={getIcon(backend)} />
 				</div>
 
-				<div class="deal-card [--delay:270ms] [--r:16deg] [--x:260px] [--y:300px]">
+				<div
+					class="deal-card sm:col-span-auto col-span-2 justify-self-center [--delay:270ms] [--r:16deg] [--x:260px] [--y:300px]"
+				>
 					<PlayingCard title="Database" value={db} code="DB" suit="♦" icon={getIcon(db)} />
 				</div>
 
-				<div class="deal-card [--delay:360ms] [--r:28deg] [--x:420px] [--y:260px]">
+				<div
+					class="deal-card sm:col-span-auto col-span-2 justify-self-center [--delay:360ms] [--r:28deg] [--x:420px] [--y:260px]"
+				>
 					<PlayingCard title="Deploy" value={deploy} code="DP" suit="♠" icon={getIcon(deploy)} />
 				</div>
 			</div>
