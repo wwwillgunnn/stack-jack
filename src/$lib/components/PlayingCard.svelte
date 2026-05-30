@@ -1,19 +1,19 @@
 <script lang="ts">
-	type Props = {
-		title: string;
-		value: string;
-		code?: string;
-		suit?: string;
-		icon?: string;
-	};
-
 	let {
 		title,
 		value,
-		code = title.slice(0, 2).toUpperCase(),
-		suit = '♠',
-		icon = '⬡'
-	}: Props = $props();
+		code,
+		suit,
+		icon,
+		url = ''
+	} = $props<{
+		title: string;
+		value: string;
+		code: string;
+		suit: string;
+		icon: string;
+		url?: string;
+	}>();
 
 	let cardEl: HTMLDivElement;
 	let shineEl: HTMLDivElement;
@@ -48,58 +48,65 @@
 	}
 </script>
 
-<!-- Onclick change to button and maybe go to the docs page? -->
-<div
-	role="tab"
-	tabindex="0"
-	aria-label={`${title}: ${value}`}
-	bind:this={cardEl}
-	onmousemove={onMouseMove}
-	onmouseleave={onMouseLeave}
-	aria-roledescription="kk"
-	class="relative flex h-44 w-30 cursor-default items-center justify-center rounded-xl border border-white bg-white px-2 py-3 text-black shadow-[0_8px_24px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.8)] transition-[box-shadow,transform] duration-100 ease-out sm:h-64 sm:w-44 md:h-80 md:w-54"
-	style="transform-style: preserve-3d; will-change: transform;"
+<svelte:element
+	this={url ? 'a' : 'div'}
+	href={url || undefined}
+	target={url ? '_blank' : undefined}
+	rel={url ? 'noopener noreferrer' : undefined}
+	class="block no-underline"
 >
-	<!-- Shine overlay -->
 	<div
-		bind:this={shineEl}
-		class="pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-300"
-		style="opacity: 0; z-index: 10;"
-	></div>
-
-	<!-- Suit info -->
-	<div
-		class="absolute top-2 left-2 text-xs leading-none font-bold tracking-wider text-black/55 uppercase sm:text-sm md:text-2xl"
+		role="tab"
+		tabindex="0"
+		aria-label={`${title}: ${value}`}
+		bind:this={cardEl}
+		onmousemove={onMouseMove}
+		onmouseleave={onMouseLeave}
+		aria-roledescription="kk"
+		class="relative flex h-44 w-30 cursor-default items-center justify-center rounded-xl border border-white bg-white px-2 py-3 text-black shadow-[0_8px_24px_rgba(0,0,0,0.4),0_2px_6px_rgba(0,0,0,0.3),inset_0_1px_0_rgba(255,255,255,0.8)] transition-[box-shadow,transform] duration-100 ease-out sm:h-64 sm:w-44 md:h-80 md:w-54"
+		style="transform-style: preserve-3d; will-change: transform;"
 	>
-		<span>{code}</span>
-		<span class="md:text-md mt-0.5 block text-xs text-black/70 sm:text-sm">{suit}</span>
-	</div>
-
-	<div
-		class="absolute right-2 bottom-2 rotate-180 text-xs leading-none font-bold tracking-wider text-[#783c14]/55 uppercase sm:text-sm md:text-2xl"
-	>
-		<span>{code}</span>
-		<span class="md:text-md mt-0.5 block text-xs text-black/70 sm:text-sm">{suit}</span>
-	</div>
-
-	<!-- Middle Section -->
-	<div class="flex flex-col items-center justify-center gap-2 text-center sm:gap-3">
+		<!-- Shine overlay -->
 		<div
-			class="flex size-16 items-center justify-center overflow-hidden rounded-xl sm:size-24 md:size-36"
+			bind:this={shineEl}
+			class="pointer-events-none absolute inset-0 rounded-xl transition-opacity duration-300"
+			style="opacity: 0; z-index: 10;"
+		></div>
+
+		<!-- Suit info -->
+		<div
+			class="absolute top-2 left-2 text-xs leading-none font-bold tracking-wider text-black/55 uppercase sm:text-sm md:text-2xl"
 		>
-			{@html icon}
+			<span>{code}</span>
+			<span class="md:text-md mt-0.5 block text-xs text-black/70 sm:text-sm">{suit}</span>
 		</div>
 
-		<div>
-			<h3
-				class="m-0 text-xs font-bold tracking-wider text-black/65 uppercase sm:text-sm md:text-lg"
-			>
-				{title}
-			</h3>
+		<div
+			class="absolute right-2 bottom-2 rotate-180 text-xs leading-none font-bold tracking-wider text-[#783c14]/55 uppercase sm:text-sm md:text-2xl"
+		>
+			<span>{code}</span>
+			<span class="md:text-md mt-0.5 block text-xs text-black/70 sm:text-sm">{suit}</span>
+		</div>
 
-			<p class="mt-1 text-sm leading-tight font-bold text-black/80 sm:text-lg md:text-xl">
-				{value}
-			</p>
+		<!-- Middle Section -->
+		<div class="flex flex-col items-center justify-center gap-2 text-center sm:gap-3">
+			<div
+				class="flex size-16 items-center justify-center overflow-hidden rounded-xl sm:size-24 md:size-36"
+			>
+				<img src={icon} alt={title} class="size-full object-contain" />
+			</div>
+
+			<div>
+				<h3
+					class="m-0 text-xs font-bold tracking-wider text-black/65 uppercase sm:text-sm md:text-lg"
+				>
+					{title}
+				</h3>
+
+				<p class="mt-1 text-sm leading-tight font-bold text-black/80 sm:text-lg md:text-xl">
+					{value}
+				</p>
+			</div>
 		</div>
 	</div>
-</div>
+</svelte:element>
