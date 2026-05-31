@@ -150,7 +150,7 @@
 			<span class="max-w-xl text-sm leading-relaxed text-white/75 sm:text-base">
 				Press to get a random app idea and matching tech stack. <br />
 				<a
-					href="https://startups.vercel.app"
+					href="https://wrapped.vercel.app"
 					class="pointer-events-auto duration-150 ease-in-out hover:text-[#ff4a16]"
 					>For startup ideas click Here</a
 				>

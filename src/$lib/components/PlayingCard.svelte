@@ -75,7 +75,7 @@
 
 		<!-- Suit info -->
 		<div
-			class="absolute top-2 left-2 text-xs leading-none font-bold tracking-wider text-black/55 uppercase sm:text-sm md:text-2xl"
+			class="absolute top-2 left-2 text-xs leading-none font-bold tracking-wider text-[#783c14]/55 uppercase sm:text-sm md:text-2xl"
 		>
 			<span>{code}</span>
 			<span class="md:text-md mt-0.5 block text-xs text-black/70 sm:text-sm">{suit}</span>
@@ -93,17 +93,24 @@
 			<div
 				class="flex size-16 items-center justify-center overflow-hidden rounded-xl sm:size-24 md:size-36"
 			>
-				<img src={icon} alt={title} class="size-full object-contain" />
+				<div
+					class="size-full"
+					style="
+						background-color: #C44A1A;
+						mask: url({icon}) center/contain no-repeat;
+						-webkit-mask: url({icon}) center/contain no-repeat;
+					"
+				></div>
 			</div>
 
 			<div>
 				<h3
-					class="m-0 text-xs font-bold tracking-wider text-black/65 uppercase sm:text-sm md:text-lg"
+					class="m-0 text-xs font-bold tracking-wider text-[#A83B10] uppercase sm:text-sm md:text-lg"
 				>
 					{title}
 				</h3>
 
-				<p class="mt-1 text-sm leading-tight font-bold text-black/80 sm:text-lg md:text-xl">
+				<p class="mt-1 text-sm leading-tight font-bold text-[#1A0A00] sm:text-lg md:text-xl">
 					{value}
 				</p>
 			</div>

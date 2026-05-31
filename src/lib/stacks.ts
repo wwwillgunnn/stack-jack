@@ -8,54 +8,48 @@ export const frontends = [
 	'Nuxt',
 	'Angular',
 	'Remix',
-	'Qwik',
-	'Preact',
+	'Ripple',
 	'Alpine.js',
-	'HTMX',
-	'Lit',
-	'Gatsby',
-	'Eleventy'
+	'HTMX'
 ];
 
 export const stylings = [
 	'Tailwind',
 	'shadcn/ui',
-	'UnoCSS',
-	'Pico CSS',
-	'Radix UI',
-	'Vanilla CSS',
-	'Open Props',
-	'Bootstrap',
-	'Bulma',
-	'Material UI',
-	'Chakra UI',
-	'Ant Design',
-	'DaisyUI',
-	'Windi CSS',
-	'Panda CSS',
-	'Stitches'
+	'Vanilla CSS'
+	// TODO: add cool component libs here!
+	// 'Open Props',
+	// 'Bootstrap',
+	// 'Bulma',
+	// 'Material UI',
+	// 'Chakra UI',
+	// 'Ant Design',
+	// 'DaisyUI',
+	// 'Windi CSS',
+	// 'Panda CSS',
+	// 'Stitches'
 ];
 
 export const backends = [
 	'Node.js',
-	'Python/FastAPI',
+	'FastAPI',
 	'Go',
-	'Bun/Hono',
-	'Elixir/Phoenix',
+	'Hono',
+	'Phoenix',
 	'Supabase Edge',
-	'Deno/Oak',
-	'Node/Fastify',
-	'Python/Django',
-	'Python/Flask',
+	'Deno',
+	'Fastify',
+	'Django',
+	'Flask',
 	'Ruby on Rails',
-	'Java/Spring',
-	'C#/ASP.NET',
-	'Rust/Rocket',
-	'PHP/Laravel',
+	'Spring',
+	'ASP.NET',
+	'Rocket',
+	'Laravel',
 	'NestJS',
 	'Express',
 	'Firebase',
-	'Kotlin/Ktor'
+	'Ktor'
 ];
 
 export const dbs = [
@@ -72,11 +66,9 @@ export const dbs = [
 	'DynamoDB',
 	'Firestore',
 	'Cassandra',
-	'Neo4j',
-	'ClickHouse',
+	'Neon',
 	'DuckDB',
-	'ScyllaDB',
-	'Fauna'
+	'ScyllaDB'
 ];
 
 export const deploys = [
@@ -91,12 +83,7 @@ export const deploys = [
 	'Google Cloud',
 	'Azure',
 	'Heroku',
-	'DigitalOcean',
-	'Linode',
-	'Koyeb',
-	'Cyclic',
-	'Hetzner',
-	'Northflank'
+	'DigitalOcean'
 ];
 
 const techUrls: Record<string, string> = {
@@ -109,18 +96,11 @@ const techUrls: Record<string, string> = {
 	Nuxt: 'https://nuxt.com',
 	Angular: 'https://angular.dev',
 	Remix: 'https://remix.run',
-	Qwik: 'https://qwik.dev',
-	Preact: 'https://preactjs.com',
+	Ripple: 'https://www.ripple-ts.com',
 	'Alpine.js': 'https://alpinejs.dev',
 	HTMX: 'https://htmx.org',
-	Lit: 'https://lit.dev',
-	Gatsby: 'https://gatsbyjs.com',
-	Eleventy: 'https://11ty.dev',
 	Tailwind: 'https://tailwindcss.com',
 	'shadcn/ui': 'https://ui.shadcn.com',
-	UnoCSS: 'https://unocss.dev',
-	'Pico CSS': 'https://picocss.com',
-	'Radix UI': 'https://radix-ui.com',
 	'Vanilla CSS': 'https://developer.mozilla.org/en-US/docs/Web/CSS',
 	'Open Props': 'https://open-props.style',
 	Bootstrap: 'https://getbootstrap.com',
@@ -133,24 +113,24 @@ const techUrls: Record<string, string> = {
 	'Panda CSS': 'https://panda-css.com',
 	Stitches: 'https://stitches.dev',
 	'Node.js': 'https://nodejs.org',
-	'Python/FastAPI': 'https://fastapi.tiangolo.com',
+	FastAPI: 'https://fastapi.tiangolo.com',
 	Go: 'https://go.dev',
-	'Bun/Hono': 'https://hono.dev',
-	'Elixir/Phoenix': 'https://phoenixframework.org',
+	Hono: 'https://hono.dev',
+	Phoenix: 'https://phoenixframework.org',
 	'Supabase Edge': 'https://supabase.com/docs/guides/functions',
-	'Deno/Oak': 'https://deno.com',
-	'Node/Fastify': 'https://fastify.dev',
-	'Python/Django': 'https://djangoproject.com',
-	'Python/Flask': 'https://flask.palletsprojects.com',
+	Deno: 'https://deno.com',
+	Fastify: 'https://fastify.dev',
+	Django: 'https://djangoproject.com',
+	Flask: 'https://flask.palletsprojects.com',
 	'Ruby on Rails': 'https://rubyonrails.org',
-	'Java/Spring': 'https://spring.io',
-	'C#/ASP.NET': 'https://dotnet.microsoft.com',
-	'Rust/Rocket': 'https://rocket.rs',
-	'PHP/Laravel': 'https://laravel.com',
+	Spring: 'https://spring.io',
+	'ASP.NET': 'https://dotnet.microsoft.com',
+	Rocket: 'https://rocket.rs',
+	Laravel: 'https://laravel.com',
 	NestJS: 'https://nestjs.com',
 	Express: 'https://expressjs.com',
 	Firebase: 'https://firebase.google.com',
-	'Kotlin/Ktor': 'https://ktor.io',
+	Ktor: 'https://ktor.io',
 	PostgreSQL: 'https://postgresql.org',
 	Redis: 'https://redis.io',
 	MongoDB: 'https://mongodb.com',
@@ -164,11 +144,10 @@ const techUrls: Record<string, string> = {
 	DynamoDB: 'https://aws.amazon.com/dynamodb',
 	Firestore: 'https://firebase.google.com/docs/firestore',
 	Cassandra: 'https://cassandra.apache.org',
-	Neo4j: 'https://neo4j.com',
+	Neon: 'https://neon.com',
 	ClickHouse: 'https://clickhouse.com',
 	DuckDB: 'https://duckdb.org',
 	ScyllaDB: 'https://scylladb.com',
-	Fauna: 'https://fauna.com',
 	Vercel: 'https://vercel.com',
 	Railway: 'https://railway.app',
 	'Fly.io': 'https://fly.io',
@@ -180,12 +159,7 @@ const techUrls: Record<string, string> = {
 	'Google Cloud': 'https://cloud.google.com',
 	Azure: 'https://azure.microsoft.com',
 	Heroku: 'https://heroku.com',
-	DigitalOcean: 'https://digitalocean.com',
-	Linode: 'https://linode.com',
-	Koyeb: 'https://koyeb.com',
-	Cyclic: 'https://cyclic.sh',
-	Hetzner: 'https://hetzner.com',
-	Northflank: 'https://northflank.com'
+	DigitalOcean: 'https://digitalocean.com'
 };
 
 export function techUrl(name: string): string {
@@ -193,8 +167,11 @@ export function techUrl(name: string): string {
 }
 
 export function techIcon(name: string): string {
-	const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-	return `/icons/${slug}.png`;
+	const slug = name
+		.toLowerCase()
+		.replace(/[^a-z0-9]+/g, '-')
+		.replace(/^-|-$/g, '');
+	return `/icons/${slug}.svg`;
 }
 
 export function pick<StackItem>(arr: StackItem[]): StackItem {
